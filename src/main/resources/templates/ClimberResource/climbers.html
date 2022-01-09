@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Qute - CLimbers</title>
+</head>
+<body>
+<h1>List of Climbers</h1>
+<ul>
+    {#for climber in climbers}
+        <li>
+        {climber.id}:
+        {climber.lastName}
+        {climber.firstName}
+        {climber.age}
+        {climber.league}
+        </li>
+    {/for}
+</ul>
+</body>
+</html>

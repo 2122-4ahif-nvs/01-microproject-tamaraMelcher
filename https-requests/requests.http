@@ -1,12 +1,22 @@
-GET http://localhost/climbing/allClimbers
+GET http://localhost:8080/api/climbing/allClimbers
 
 ###
 
-GET http://localhost/climbing/climber/1
+GET http://localhost:8080/api/climbing/climber/1
 
 ###
 
-GET http://localhost/climbing/allLeagues
+GET http://localhost:8080/api/climbing/allLeagues
 
 ###
+
+GET http://localhost:8080/api/climbing/league/2
+
+###
+
+GET http://localhost:8080/api/climbing/allRoutes
+
+###
+
+GET http://localhost:8080/api/climbing/route/6
 

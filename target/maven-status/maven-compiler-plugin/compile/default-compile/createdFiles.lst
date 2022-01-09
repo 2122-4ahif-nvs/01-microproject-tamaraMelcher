@@ -1,9 +1,9 @@
 at/htl/entity/League.class
 at/htl/entity/Climber.class
+at/htl/boundary/ClimbingManagementResource.class
 at/htl/control/LeagueRepository.class
 META-INF/panache-archive.marker
 at/htl/entity/Difficulty.class
-at/htl/boundary/GreetingResource.class
 at/htl/entity/Route.class
 at/htl/control/RouteRepository.class
 at/htl/control/ClimberRepository.class
