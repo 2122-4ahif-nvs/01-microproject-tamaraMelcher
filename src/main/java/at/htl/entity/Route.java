@@ -4,6 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Route.getAllRoutes",
+                query = "select r from Route r"
+        ),
+        @NamedQuery(
+                name = "Route.getRoutePerId",
+                query = "select r from Route r where r.id = :ID"
+        )
+})
+
 @Table(name = "MP_ROUTE")
 @Entity
 public class Route {

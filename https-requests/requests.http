@@ -1,0 +1,12 @@
+GET http://localhost/climbing/allClimbers
+
+###
+
+GET http://localhost/climbing/climber/1
+
+###
+
+GET http://localhost/climbing/allLeagues
+
+###
+

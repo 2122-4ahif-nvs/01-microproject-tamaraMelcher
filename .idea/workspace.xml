@@ -20,6 +20,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
@@ -90,7 +91,8 @@
       <workItem from="1641583946940" duration="399000" />
       <workItem from="1641584359540" duration="1271000" />
       <workItem from="1641585645370" duration="1368000" />
-      <workItem from="1641734348962" duration="565000" />
+      <workItem from="1641734348962" duration="1020000" />
+      <workItem from="1641735401610" duration="2542000" />
     </task>
     <task id="LOCAL-00001" summary="fix1">
       <created>1641584236301</created>
@@ -106,7 +108,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641586830935</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="validation made in entities">
+      <created>1641735344815</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641735344815</updated>
+    </task>
+    <task id="LOCAL-00004" summary="made fields in entities public and added a http request file">
+      <created>1641735852544</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641735852544</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +155,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fix1" />
     <MESSAGE value="fix 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 1" />
+    <MESSAGE value="validation made in entities" />
+    <MESSAGE value="made fields in entities public and added a http request file" />
+    <option name="LAST_COMMIT_MESSAGE" value="made fields in entities public and added a http request file" />
   </component>
 </project>

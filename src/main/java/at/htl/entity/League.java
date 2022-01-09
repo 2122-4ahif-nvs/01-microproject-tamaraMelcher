@@ -6,6 +6,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "League.getAllLeagues",
+                query = "select l from League l"
+        ),
+        @NamedQuery(
+                name = "League.getLeaguePerId",
+                query = "select l from League l where l.id = :ID"
+        )
+})
+
 @Table(name = "MP_LEAGUE")
 @Entity
 public class League {

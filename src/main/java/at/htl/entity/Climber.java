@@ -8,6 +8,10 @@ import javax.validation.constraints.NotBlank;
         @NamedQuery(
                 name = "Climber.getAllClimbers",
                 query = "select c from Climber c"
+        ),
+        @NamedQuery(
+                name = "Climber.getClimberPerId",
+                query = "select c from Climber c where c.id = :ID"
         )
 })
 
