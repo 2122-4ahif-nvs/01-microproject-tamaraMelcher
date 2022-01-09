@@ -12,15 +12,15 @@ public class League {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "L_ID")
-    private Long id;
+    public Long id;
     @NotNull(message="League has to have a difficulty")
     @Column(name = "L_DIFFICULTY")
-    private Difficulty difficulty;
+    public Difficulty difficulty;
     @NotBlank(message="League has to be named")
     @Column(name = "L_NAME_OF_LEAGUE")
-    private String nameOfLeague;
+    public String nameOfLeague;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Climber> climbers;
+    public List<Climber> climbers;
 
     //region Constructor
     public League() {
