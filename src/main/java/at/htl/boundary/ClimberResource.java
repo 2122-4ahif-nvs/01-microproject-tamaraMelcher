@@ -11,6 +11,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import at.htl.control.ClimberRepository;
+import at.htl.control.ClimberService;
 import at.htl.entity.Climber;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
@@ -26,11 +27,10 @@ public class ClimberResource {
     Template hello;
 
     @Inject
-    ClimberRepository climberRepository;
+    ClimberService climberService;
 
     @CheckedTemplate
     static class Templates {
-
         static native TemplateInstance climbers(List<Climber> climbers);
     }
 
@@ -42,9 +42,9 @@ public class ClimberResource {
 
     @Path("allClimbers")
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get() {
-        List<Climber> climbers = climberRepository.getAllClimbers();
+        List<Climber> climbers = climberService.getAllOrders();
         return Templates.climbers(climbers);
     }
 }
