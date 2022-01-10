@@ -5,7 +5,9 @@ import at.htl.entity.League;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
+import java.util.LinkedList;
 import java.util.List;
 
 @ApplicationScoped
@@ -16,8 +18,14 @@ public class ClimberRepository implements PanacheRepository<Climber> {
     }
 
     public List<Climber> getAllClimbers() {
-        return getEntityManager().createNamedQuery("Climber.getAllClimbers", Climber.class)
-                .getResultList();
+        List<Climber> climbers = new LinkedList<>();
+        try{
+            climbers = getEntityManager().createNamedQuery("Climber.getAllClimbers", Climber.class)
+                    .getResultList();
+        }catch (NoResultException e){
+            e.printStackTrace();
+        }
+        return climbers;
     }
 
     public Climber getClimberPerId(Long id) {

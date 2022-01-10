@@ -1,5 +1,7 @@
 package at.htl.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,7 +19,7 @@ import javax.validation.constraints.NotNull;
 
 @Table(name = "MP_ROUTE")
 @Entity
-public class Route {
+public class Route extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "R_ID")

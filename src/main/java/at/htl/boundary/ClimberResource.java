@@ -44,7 +44,7 @@ public class ClimberResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get() {
-        List<Climber> climbers = climberService.getAllOrders();
+        List<Climber> climbers = climberService.getAllClimbers();
         return Templates.climbers(climbers);
     }
 }

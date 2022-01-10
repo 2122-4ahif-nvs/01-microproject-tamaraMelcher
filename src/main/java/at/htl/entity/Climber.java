@@ -1,4 +1,7 @@
 package at.htl.entity;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -17,7 +20,7 @@ import javax.validation.constraints.NotBlank;
 
 @Table(name = "MP_CLIMBER")
 @Entity
-public class Climber {
+public class Climber extends PanacheEntityBase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_ID")
     public Long id;

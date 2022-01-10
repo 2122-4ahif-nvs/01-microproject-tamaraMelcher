@@ -20,3 +20,8 @@ GET http://localhost:8080/api/climbing/allRoutes
 
 GET http://localhost:8080/api/climbing/route/6
 
+###
+
+GET http://localhost:8080/api/hello/allClimbers
+
+

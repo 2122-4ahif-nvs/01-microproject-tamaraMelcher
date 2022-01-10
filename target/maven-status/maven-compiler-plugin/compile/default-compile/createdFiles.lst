@@ -8,4 +8,5 @@ at/htl/entity/Route.class
 at/htl/boundary/ClimberResource$Templates.class
 at/htl/control/ClimberRepository.class
 META-INF/panache-archive.marker
+at/htl/control/ClimberService.class
 at/htl/control/RouteRepository.class

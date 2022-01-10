@@ -1,5 +1,7 @@
 package at.htl.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -19,7 +21,7 @@ import java.util.List;
 
 @Table(name = "MP_LEAGUE")
 @Entity
-public class League {
+public class League extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "L_ID")
