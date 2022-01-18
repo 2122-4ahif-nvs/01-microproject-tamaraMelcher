@@ -112,7 +112,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonArray printAllRoutes() {
-        List<Route> routes = routeRepository.getAllRoutes();
+        List<Route> routes = (List<Route>) routeRepository.findAll();
         JsonArrayBuilder builder = Json.createArrayBuilder();
         for (Route r : routes){
             builder.add(Json.createObjectBuilder()
@@ -129,7 +129,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response printRoute(@PathParam("id") Long id) {
-        Route r = routeRepository.getRoutePerId(id);
+        Route r = routeRepository.findById(id);
         if(r == null)
             return Response.noContent().build();
         JsonObjectBuilder objectBuilder = Json.createObjectBuilder();

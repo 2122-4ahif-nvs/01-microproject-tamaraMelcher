@@ -11,19 +11,4 @@ import java.util.List;
 
 @ApplicationScoped
 public class RouteRepository implements PanacheRepository<Route> {
-    @Transactional
-    public Route save(Route route) {
-        return getEntityManager().merge(route);
-    }
-
-    public List<Route> getAllRoutes() {
-        return getEntityManager().createNamedQuery("Route.getAllRoutes", Route.class)
-                .getResultList();
-    }
-
-    public Route getRoutePerId(Long id) {
-        return getEntityManager().createNamedQuery("Route.getRoutePerId", Route.class)
-                .setParameter("ID", id)
-                .getSingleResult();
-    }
 }
