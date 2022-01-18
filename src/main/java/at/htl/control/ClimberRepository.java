@@ -12,25 +12,5 @@ import java.util.List;
 
 @ApplicationScoped
 public class ClimberRepository implements PanacheRepository<Climber> {
-    @Transactional
-    public Climber save(Climber climber) {
-        return getEntityManager().merge(climber);
-    }
 
-    public List<Climber> getAllClimbers() {
-        List<Climber> climbers = new LinkedList<>();
-        try{
-            climbers = getEntityManager().createNamedQuery("Climber.getAllClimbers", Climber.class)
-                    .getResultList();
-        }catch (NoResultException e){
-            e.printStackTrace();
-        }
-        return climbers;
-    }
-
-    public Climber getClimberPerId(Long id) {
-        return getEntityManager().createNamedQuery("Climber.getClimberPerId", Climber.class)
-                .setParameter("ID", id)
-                .getSingleResult();
-    }
 }

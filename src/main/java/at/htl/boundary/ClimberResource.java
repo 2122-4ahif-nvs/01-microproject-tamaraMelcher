@@ -29,9 +29,17 @@ public class ClimberResource {
     @Inject
     ClimberService climberService;
 
+    @Inject
+    ClimberRepository climberRepository;
+
+    @Inject
+    Template climber;
+
     @CheckedTemplate
     static class Templates {
         static native TemplateInstance climbers(List<Climber> climbers);
+        static native TemplateInstance climber(Climber climber);
+
     }
 
     @GET
@@ -47,4 +55,12 @@ public class ClimberResource {
         List<Climber> climbers = climberService.getAllClimbers();
         return Templates.climbers(climbers);
     }
+
+    /*@Path("climber")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance get(@QueryParam("name") Long id) {
+        Climber climber = climberRepository.getClimberPerId(id);
+        return Templates.climber(climber);
+    }*/
 }

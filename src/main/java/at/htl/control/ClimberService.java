@@ -15,7 +15,7 @@ public class ClimberService {
     }
 
     public List<Climber> getAllClimbers() {
-        List<Climber> climbers = this.climberRepository.getAllClimbers();
+        List<Climber> climbers = (List<Climber>) this.climberRepository.findAll();
         return climbers;
     }
 }

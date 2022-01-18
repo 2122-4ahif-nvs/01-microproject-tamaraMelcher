@@ -24,4 +24,9 @@ GET http://localhost:8080/api/climbing/route/6
 
 GET http://localhost:8080/api/hello/allClimbers
 
+###
+
+GET http://localhost:8080/api/hello/climber?id=1
+
+
 

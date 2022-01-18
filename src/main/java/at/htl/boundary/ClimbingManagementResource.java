@@ -13,10 +13,8 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -39,7 +37,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonArray printAllClimbers() {
-        List<Climber> climbers = climberRepository.getAllClimbers();
+        List<Climber> climbers = (List<Climber>) climberRepository.findAll();
         JsonArrayBuilder builder = Json.createArrayBuilder();
         for (Climber c : climbers){
             builder.add(Json.createObjectBuilder()
@@ -57,7 +55,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response printClimberPerId(@PathParam("id") Long id) {
-        Climber c = climberRepository.getClimberPerId(id);
+        Climber c = climberRepository.findById(id);
         if(c == null)
             return Response.noContent().build();
 
@@ -74,7 +72,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonArray printAllLeagues() {
-        List<League> leagues = leagueRepository.getAllLeagues();
+        List<League> leagues = (List<League>) leagueRepository.findAll();
         JsonArrayBuilder builder = Json.createArrayBuilder();
         for (League l : leagues){
             builder.add(Json.createObjectBuilder()
@@ -90,7 +88,7 @@ public class ClimbingManagementResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response printLeagueWithAllClimbers(@PathParam("id") Long id) {
-        League l = leagueRepository.getLeaguePerId(id);
+        League l = leagueRepository.findById(id);
         if(l == null)
             return Response.noContent().build();
         JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
@@ -140,5 +138,17 @@ public class ClimbingManagementResource {
         objectBuilder.add("colour", r.color);
         objectBuilder.add("status", r.isFree);
         return Response.ok(objectBuilder.build()).build();
+    }
+
+    @POST
+    @Path("{climberId}/deleteClimber")
+    @Transactional
+    public Response deleteClimber(@PathParam("climberId") Long id){
+        Climber climber = this.climberRepository.findById(id);
+        if (climber == null){
+            return Response.status(404).build();
+        }
+        this.climberRepository.deleteById(id);
+        return Response.ok().build();
     }
 }

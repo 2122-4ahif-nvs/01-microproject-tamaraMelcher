@@ -8,13 +8,13 @@
 <h1>List of Climbers</h1>
 <ul>
     {#for climber in climbers}
-        <li>
+        <ul>
         {climber.id}:
         {climber.lastName}
         {climber.firstName}
         {climber.age}
         {climber.league}
-        </li>
+        </ul>
     {/for}
 </ul>
 </body>
