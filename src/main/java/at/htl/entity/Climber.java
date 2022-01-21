@@ -1,4 +1,5 @@
 package at.htl.entity;
+import io.quarkus.elytron.security.common.BcryptUtil;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
@@ -35,6 +36,8 @@ public class Climber extends PanacheEntityBase {
     @Max(message="Climber has to be younger than 100 years", value=100)
     @Column(name = "C_AGE")
     public int age;
+    @Column(name = "C_USERNAME")
+    public String userName;
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     public League league;
 
@@ -46,6 +49,7 @@ public class Climber extends PanacheEntityBase {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.userName = firstName.toLowerCase() + lastName;
     }
 
     public Climber(String firstName, String lastName, int age, League league) {
