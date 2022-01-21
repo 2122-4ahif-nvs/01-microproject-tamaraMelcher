@@ -8,17 +8,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-@NamedQueries({
-        @NamedQuery(
-                name = "Climber.getAllClimbers",
-                query = "select c from Climber c"
-        ),
-        @NamedQuery(
-                name = "Climber.getClimberPerId",
-                query = "select c from Climber c where c.id = :ID"
-        )
-})
-
 @Table(name = "MP_CLIMBER")
 @Entity
 public class Climber extends PanacheEntityBase {
