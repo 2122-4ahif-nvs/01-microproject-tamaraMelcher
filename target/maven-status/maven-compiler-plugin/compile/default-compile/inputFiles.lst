@@ -1,10 +1,12 @@
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/control/LeagueRepository.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/control/ClimberRepository.java
+/Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/boundary/TrainerAPI.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/entity/Route.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/control/ClimberService.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/entity/League.java
-/Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/boundary/ClimbingManagementResource.java
+/Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/boundary/PublicAPI.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/entity/Climber.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/boundary/ClimberResource.java
+/Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/boundary/ClimberAPI.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/control/RouteRepository.java
 /Users/tamaramelcher/Desktop/01-microproject-tamaraMelcher/src/main/java/at/htl/entity/Difficulty.java
