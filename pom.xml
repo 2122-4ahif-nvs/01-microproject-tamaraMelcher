@@ -77,7 +77,10 @@
       <version>3.21.0</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-elytron-security-properties-file</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
