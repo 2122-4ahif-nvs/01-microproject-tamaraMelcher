@@ -8,6 +8,7 @@ import at.htl.entity.League;
 import at.htl.entity.Route;
 import org.jboss.logging.Logger;
 
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -20,7 +21,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("climbing")
-public class ClimbingManagementResource {
+public class PublicAPI {
     @Inject
     ClimberRepository climberRepository;
 
@@ -33,43 +34,9 @@ public class ClimbingManagementResource {
     @Inject
     Logger LOG;
 
-    @Path("allClimbers")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public JsonArray printAllClimbers() {
-        List<Climber> climbers = (List<Climber>) climberRepository.findAll();
-        JsonArrayBuilder builder = Json.createArrayBuilder();
-        for (Climber c : climbers){
-            builder.add(Json.createObjectBuilder()
-                    .add("id", c.id)
-                    .add("lastName", c.lastName)
-                    .add("firstName", c.firstName)
-                    .add("age", c.age)
-                    .add("league", c.league.nameOfLeague)
-            );
-        }
-        return builder.build();
-    }
-
-    @Path("climber/{id}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response printClimberPerId(@PathParam("id") Long id) {
-        Climber c = climberRepository.findById(id);
-        if(c == null)
-            return Response.noContent().build();
-
-        JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-        objectBuilder.add("id", c.id);
-        objectBuilder.add("lastName", c.lastName);
-        objectBuilder.add("firstName", c.firstName);
-        objectBuilder.add("age", c.age);
-        objectBuilder.add("league", c.league.nameOfLeague);
-        return Response.ok(objectBuilder.build()).build();
-    }
-
     @Path("allLeagues")
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public JsonArray printAllLeagues() {
         List<League> leagues = (List<League>) leagueRepository.findAll();
@@ -86,6 +53,7 @@ public class ClimbingManagementResource {
 
     @Path("league/{id}")
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public Response printLeagueWithAllClimbers(@PathParam("id") Long id) {
         League l = leagueRepository.findById(id);
@@ -110,6 +78,7 @@ public class ClimbingManagementResource {
 
     @Path("allRoutes")
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public JsonArray printAllRoutes() {
         List<Route> routes = (List<Route>) routeRepository.findAll();
@@ -127,6 +96,7 @@ public class ClimbingManagementResource {
 
     @Path("route/{id}")
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public Response printRoute(@PathParam("id") Long id) {
         Route r = routeRepository.findById(id);
@@ -138,17 +108,5 @@ public class ClimbingManagementResource {
         objectBuilder.add("colour", r.color);
         objectBuilder.add("status", r.isFree);
         return Response.ok(objectBuilder.build()).build();
-    }
-
-    @POST
-    @Path("{climberId}/deleteClimber")
-    @Transactional
-    public Response deleteClimber(@PathParam("climberId") Long id){
-        Climber climber = this.climberRepository.findById(id);
-        if (climber == null){
-            return Response.status(404).build();
-        }
-        this.climberRepository.deleteById(id);
-        return Response.ok().build();
     }
 }
