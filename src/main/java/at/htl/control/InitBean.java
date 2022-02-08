@@ -35,14 +35,13 @@ public class InitBean {
         climberRepository.persist(new Climber("Tamara", "Melcher", 18, l1));
         climberRepository.persist(new Climber("Elena", "Heckmann", 12, l3));
         climberRepository.persist(new Climber("Jan", "Melcher", 16, l2));
-        routeRepository.persist(new Route("Blue", Difficulty.Hard, true));
-        routeRepository.persist(new Route("Orange", Difficulty.Hard, true));
-        routeRepository.persist(new Route("Red", Difficulty.Easy, true));
-        routeRepository.persist(new Route("Green", Difficulty.Medium, true));
-        routeRepository.persist(new Route("Violet", Difficulty.Easy, true));
-        routeRepository.persist(new Route("Blue", Difficulty.Hard, true));
-        routeRepository.persist(new Route("Yellow", Difficulty.Easy, true));
-        routeRepository.persist(new Route("Pink", Difficulty.Medium, true));
-
+        routeRepository.persist(new Route("The blue monkey","Blue", Difficulty.Hard, true));
+        routeRepository.persist(new Route("The orange fish","Orange", Difficulty.Hard, true));
+        routeRepository.persist(new Route("Red sun","Red", Difficulty.Easy, true));
+        routeRepository.persist(new Route("Greenland","Green", Difficulty.Medium, true));
+        routeRepository.persist(new Route("Violence","Violet", Difficulty.Easy, true));
+        routeRepository.persist(new Route("Blue-wale","Blue", Difficulty.Hard, true));
+        routeRepository.persist(new Route("Dagobert Duck","Yellow", Difficulty.Easy, true));
+        routeRepository.persist(new Route("The pink Flamingo","Pink", Difficulty.Medium, true));
     }
 }

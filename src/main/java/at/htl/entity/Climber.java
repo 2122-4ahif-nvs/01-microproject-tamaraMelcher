@@ -15,13 +15,13 @@ public class Climber extends PanacheEntityBase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_ID")
     public Long id;
-    @NotNull(message="Firstname may not be blank!")
+    @NotNull(message="Firstname may not be null!")
     @Column(name = "C_FIRST_NAME")
     public String firstName;
-    @NotNull(message="Lastname may not be blank!")
+    @NotNull(message="Lastname may not be null!")
     @Column(name = "C_LAST_NAME")
     public String lastName;
-    @NotNull(message="Age may not be blank!")
+    @NotNull(message="Age may not be null!")
     @Min(message="Climber has to be older than 3 years", value=3)
     @Max(message="Climber has to be younger than 100 years", value=100)
     @Column(name = "C_AGE")
