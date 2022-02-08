@@ -1,5 +1,6 @@
 package at.htl.boundary;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -11,8 +12,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import at.htl.control.ClimberRepository;
-import at.htl.control.ClimberService;
+import at.htl.control.LeagueRepository;
 import at.htl.entity.Climber;
+import at.htl.entity.League;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import io.quarkus.qute.Template;
@@ -20,47 +22,34 @@ import io.quarkus.qute.Template;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("hello")
+@RequestScoped
+@Path("climber")
 public class ClimberResource {
 
     @Inject
-    Template hello;
-
-    @Inject
-    ClimberService climberService;
-
-    @Inject
     ClimberRepository climberRepository;
-
     @Inject
-    Template climber;
+    LeagueRepository leagueRepository;
 
     @CheckedTemplate
-    static class Templates {
-        static native TemplateInstance climbers(List<Climber> climbers);
-        static native TemplateInstance climber(Climber climber);
+    public static class Templates {
+        public static native TemplateInstance climbers(List<Climber> climbers);
+        public static native TemplateInstance addClimber(List<League> leagues);
 
-    }
-
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public TemplateInstance get(@QueryParam("name") String name) {
-        return hello.data("name", name);
     }
 
     @Path("allClimbers")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get() {
-        List<Climber> climbers = climberService.getAllClimbers();
-        return Templates.climbers(climbers);
+    public TemplateInstance getAllClimbers() {
+        return Templates.climbers(climberRepository.findAll().list());
     }
 
-    /*@Path("climber")
+
+    @Path("addClimber")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get(@QueryParam("name") Long id) {
-        Climber climber = climberRepository.getClimberPerId(id);
-        return Templates.climber(climber);
-    }*/
+    public TemplateInstance addNewCLimber() {
+        return Templates.addClimber(leagueRepository.findAll().list());
+    }
 }
