@@ -13,8 +13,10 @@ import javax.ws.rs.core.MediaType;
 
 import at.htl.control.ClimberRepository;
 import at.htl.control.LeagueRepository;
+import at.htl.control.RouteRepository;
 import at.htl.entity.Climber;
 import at.htl.entity.League;
+import at.htl.entity.Route;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import io.quarkus.qute.Template;
@@ -30,12 +32,13 @@ public class ClimberResource {
     ClimberRepository climberRepository;
     @Inject
     LeagueRepository leagueRepository;
+    @Inject
+    RouteRepository routeRepository;
 
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance climbers(List<Climber> climbers);
         public static native TemplateInstance addClimber(List<League> leagues);
-
     }
 
     @Path("allClimbers")
@@ -52,4 +55,6 @@ public class ClimberResource {
     public TemplateInstance addNewCLimber() {
         return Templates.addClimber(leagueRepository.findAll().list());
     }
+
+
 }

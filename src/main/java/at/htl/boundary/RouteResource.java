@@ -1,5 +1,6 @@
 package at.htl.boundary;
 
+import at.htl.control.ClimberRepository;
 import at.htl.control.RouteRepository;
 import at.htl.entity.Climber;
 import at.htl.entity.League;
@@ -21,10 +22,14 @@ public class RouteResource {
 
     @Inject
     RouteRepository routeRepository;
+    @Inject
+    ClimberRepository climberRepository;
 
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance routes(List<Route> routes);
+        public static native TemplateInstance chooseRoute(List<Climber> climbers, List<Route> routes);
+        public static native TemplateInstance routeIsNotFree(String message);
     }
 
     @Path("allRoutes")
@@ -32,6 +37,20 @@ public class RouteResource {
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getAllRoutes() {
         return Templates.routes(routeRepository.findAll().list());
+    }
+
+    @Path("error")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance routeIsNotFree(String message) {
+        return Templates.routeIsNotFree(message);
+    }
+
+    @Path("chooseRoute")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance chooseRoute() {
+        return Templates.chooseRoute(climberRepository.findAll().list(), routeRepository.findAll().list());
     }
 
 }

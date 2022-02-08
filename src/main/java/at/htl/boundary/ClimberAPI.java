@@ -2,8 +2,10 @@ package at.htl.boundary;
 
 import at.htl.control.ClimberRepository;
 import at.htl.control.LeagueRepository;
+import at.htl.control.RouteRepository;
 import at.htl.entity.Climber;
 import at.htl.entity.League;
+import at.htl.entity.Route;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -20,6 +22,8 @@ public class ClimberAPI {
     LeagueRepository leagueRepository;
     @Inject
     ClimberRepository climberRepository;
+    @Inject
+    RouteRepository routeRepository;
 
     @Path("add")
     @POST

@@ -11,4 +11,7 @@ import java.util.List;
 
 @ApplicationScoped
 public class RouteRepository implements PanacheRepository<Route> {
+    public void updateRoute(Route route) {
+        getEntityManager().merge(route);
+    }
 }
