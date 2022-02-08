@@ -1,5 +1,6 @@
 *.jar
 /db/
+.idea
 #Maven
 target/
 pom.xml.tag
