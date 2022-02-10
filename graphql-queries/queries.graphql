@@ -1,0 +1,11 @@
+query allClimbers{
+    getAllClimbers{
+        id
+    }
+}
+
+query getClimber{
+    getClimberById(id: 1){
+        id
+    }
+}
