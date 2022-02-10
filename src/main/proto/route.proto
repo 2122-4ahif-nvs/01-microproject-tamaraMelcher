@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "at.htl";
+option java_outer_classname = "RouteProto";
+
+package entity;
+
+service RouteWithID {
+  rpc GetRoute(RouteRequest) returns (RouteReply) {}
+}
+
+message RouteRequest {
+  int32 id = 1;
+}
+
+message RouteReply {
+  string name = 1;
+  string color = 2;
+}

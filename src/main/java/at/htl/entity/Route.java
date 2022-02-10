@@ -51,6 +51,13 @@ public class Route extends PanacheEntityBase {
         this.color = color;
         this.isFree = isFree;
     }
+
+    public Route(String name, String color) {
+        this.name = name;
+        this.difficulty = Difficulty.Easy;
+        this.color = color;
+        this.isFree = isFree;
+    }
     //endregion Constructor
 
 

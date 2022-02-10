@@ -37,15 +37,15 @@ public class ClimberResource {
 
     @CheckedTemplate
     public static class Templates {
-        public static native TemplateInstance allClimbers(List<Climber> climbers);
-        public static native TemplateInstance addAClimber(List<League> leagues);
+        public static native TemplateInstance climbers(List<Climber> climbers);
+        public static native TemplateInstance addClimber(List<League> leagues);
     }
 
     @Path("allClimbers")
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getAllClimbers() {
-        return Templates.allClimbers(climberRepository.findAll().list());
+        return Templates.climbers(climberRepository.findAll().list());
     }
 
 
@@ -53,6 +53,6 @@ public class ClimberResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance addNewCLimber() {
-        return Templates.addAClimber(leagueRepository.findAll().list());
+        return Templates.addClimber(leagueRepository.findAll().list());
     }
 }
