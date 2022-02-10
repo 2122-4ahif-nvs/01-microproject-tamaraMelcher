@@ -24,15 +24,19 @@ public class Route extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "R_ID")
     public Long id;
+
     @NotNull(message="Route has to have a name")
     @Column(name = "R_Name")
     public String name;
+
     @NotNull(message="Route has to have a colour")
     @Column(name = "R_COLOR")
     public String color;
+
     @NotNull(message="Route has to have status")
     @Column(name = "R_IS_FREE")
     public boolean isFree;
+
     @NotNull(message="League has to have a difficulty")
     @Column(name = "R_DIFFICULTY")
     public Difficulty difficulty;

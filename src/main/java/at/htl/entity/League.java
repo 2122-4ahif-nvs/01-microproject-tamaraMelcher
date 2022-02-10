@@ -26,12 +26,15 @@ public class League extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "L_ID")
     public Long id;
+
     @NotNull(message="League has to have a difficulty")
     @Column(name = "L_DIFFICULTY")
     public Difficulty difficulty;
+
     @NotBlank(message="League has to be named")
     @Column(name = "L_NAME_OF_LEAGUE")
     public String nameOfLeague;
+
     @OneToMany(cascade = CascadeType.ALL)
     public List<Climber> climbers;
 

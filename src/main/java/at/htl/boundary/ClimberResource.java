@@ -55,6 +55,4 @@ public class ClimberResource {
     public TemplateInstance addNewCLimber() {
         return Templates.addClimber(leagueRepository.findAll().list());
     }
-
-
 }
