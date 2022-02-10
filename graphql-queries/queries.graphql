@@ -4,8 +4,10 @@ query allClimbers{
     }
 }
 
-query getClimber{
-    getClimberById(id: 1){
-        id
+query climberById{
+    getClimberById(climberId: 1){
+        lastname
     }
 }
+
+# http://localhost:8080/q/graphql-ui/
