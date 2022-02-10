@@ -15,7 +15,9 @@ In meinem Fall wird überprüft, ob die Namen der Entitäten gegeben sind und zb
 Kletterer älter als 3 Jahre ist.
 
 link:../src/main/java/at/htl/entity/Climber.java[Validierung des Kletterers]
+
 link:../src/main/java/at/htl/entity/Route.java[Validierung der Route]
+
 link:../src/main/java/at/htl/entity/League.java[Validierung der League]
 
 
@@ -53,6 +55,7 @@ Fehlerhaft
 ----
 
 link:../src/main/java/at/htl/boundary/ClimberResource.java[Climber Resource]
+
 link:../src/main/resources/templates/RouteResource/allRoutes.html[HTML Seite zum Ausgeben aller Routen]
 
 
@@ -64,7 +67,9 @@ Beschreibung der Daten der APIs.
 http://localhost:8080/q/graphql-ui/
 
 link:../graphql-queries/queries.graphql[GraphQl Queries]
+
 link:../src/main/java/at/htl/boundary/ClimberGraphQLResource.java.java[GraphQL Queries Implementierung]
+
 link:../src/main/java/at/htl/control/ClimberService.java[Methoden Implementierung]
 
 

@@ -6,12 +6,16 @@ Tamara Melcher | Klassendiagramm
 
 == Kletterverein Management
 Das Klettervereinsmanagement ist dazu da, damit die Kletterer sehen können welche Routen frei sind und welche besetzt
-sind. Die Kletterer müssen dazu immer die Route eintragen, die sie dann klettern möchten und sie dann wieder austragen,
-was nach 20 Minuten von selbst geschieht, damit falls der Kletterer vergisst sich auszutragen, die Route nicht für immer
-besetzt bleibt. Zudem können die Klettervereinsbesitzer sehen welche Route gerne und oft geklettert wird und welche nicht.
-Zudem können die Trainer des Vereins auch den Fortschritt der Kletterer mitverfolgen.
+sind. Die Kletterer müssen dazu immer die Route eintragen, die sie dann klettern möchten und sie dann wieder austragen.
+Zudem können die Klettervereinsbesitzer sehen welche Route gerne und oft geklettert wird und welche nicht. (Noch zu implementieren)
 
-== Klassendiagramm Kletterverein
+== ERD Kletterverein
 
-plantuml::plantumls/kletterverein.puml[]
+[plantuml,align=left]
+----
+include::plantuml/kletterverein.puml[]
+----
+
+== Technologies
+link:technologies.html[Technologien]
 
