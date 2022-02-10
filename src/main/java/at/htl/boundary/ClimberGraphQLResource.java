@@ -22,8 +22,8 @@ public class ClimberGraphQLResource {
     }
 
     @Query("getClimberById")
-    @Description("Get a Tenniscourt")
-    public Climber getTenniscourtByCourtId(@Name("climberId") Long id) {
+    @Description("Get a Climber By Id")
+    public Climber getClimberById(@Name("climberId") Long id) {
         return climberService.getClimberById(id);
     }
 }
