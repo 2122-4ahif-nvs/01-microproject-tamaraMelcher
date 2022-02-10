@@ -1,32 +1,6 @@
-GET http://localhost:8080/api/climbing/allClimbers
 
-###
-
-GET http://localhost:8080/api/climbing/climber/1
-
-###
-
-GET http://localhost:8080/api/climbing/allLeagues
-
-###
-
-GET http://localhost:8080/api/climbing/league/2
-
-###
-
-GET http://localhost:8080/api/climbing/allRoutes
-
-###
-
-GET http://localhost:8080/api/climbing/route/6
-
-###
-
-GET http://localhost:8080/api/hello/allClimbers
-
-###
-
-GET http://localhost:8080/api/hello/climber?id=1
+GET http://localhost:8080/climber/getAll
+Authorization: Basic tamara 1234
 
 
 
