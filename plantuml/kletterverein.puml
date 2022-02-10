@@ -1,0 +1,33 @@
+@startuml
+class Climber{
+    -string name
+    -int age
+    League:league
+}
+
+class Route{
+    -string color
+    Difficulty:difficulty
+}
+
+class League{
+    -string league
+    Difficulty:difficulty
+}
+
+class ClimberRoute{
+    Route:route
+    Climber:climber
+    LocalDate datetime
+}
+
+class Difficulty{
+    -string difficulty
+}
+
+Route "*" -- "*" Climber
+(Route, Climber) -- ClimberRoute
+Route "*" --> "1"Difficulty
+League "*" --> "1"Difficulty
+Climber "*" --> "1"League
+@enduml
