@@ -1,12 +1,15 @@
 query allClimbers{
     getAllClimbers{
         id
+      	lastName
+      	firstName
     }
 }
 
 query climberById{
-    getClimberById(climberId: 1){
-        lastname
+    getClimberById( climberId: 2){
+        lastName
+    	firstName
     }
 }
 
