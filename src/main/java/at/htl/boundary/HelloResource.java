@@ -11,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+
 @Path("/hello")
 public class HelloResource {
 
@@ -30,3 +31,4 @@ public class HelloResource {
                 .onItem().transform(helloReply -> helloReply.getMessage());
     }
 }
+

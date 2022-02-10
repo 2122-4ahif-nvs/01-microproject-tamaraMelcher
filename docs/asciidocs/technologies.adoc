@@ -1,0 +1,119 @@
+= Technologies
+Tamara Melcher
+10. February 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+
+== Validation
+
+Mithilfe der Validierung kann man bereits bei der Eingabe überprüfen,
+ob die Eingabe des Benutzers stimmt.
+
+In meinem Fall wird überprüft, ob die Namen der Entitäten gegeben sind und zb ob der
+Kletterer älter als 3 Jahre ist.
+
+link:../src/main/java/at/htl/entity/Climber.java[Validierung des Kletterers]
+link:../src/main/java/at/htl/entity/Route.java[Validierung der Route]
+link:../src/main/java/at/htl/entity/League.java[Validierung der League]
+
+
+== QUTE
+
+Quarkus Templating Engine
+
+Qute ist eine Templating-Engine, die speziell für die Anforderungen von Quarkus entwickelt wurde.
+Dabei werden die Dateien die sich src/main/resources/templates befinden und überwacht.
+Änderungen sind sofort sichtbar.
+Es werden lokal Websiten generiert.
+
+=== Probleme
+
+Am Anfang hatte ich beim Übergeben einer Liste von Kletterern Probleme, da ich sie nicht zu einer Liste konvertierte.
+
+Korrekt
+----
+ @Path("allClimbers")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance getAllClimbers() {
+        return Templates.climbers(climberRepository.findAll().list());
+    }
+----
+
+Fehlerhaft
+----
+@Path("allClimbers")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance getAllClimbers() {
+        return Templates.climbers(climberRepository.findAll().toList);
+    }
+----
+
+link:../src/main/java/at/htl/boundary/ClimberResource.java[Climber Resource]
+link:../src/main/resources/templates/RouteResource/allRoutes.html[HTML Seite zum Ausgeben aller Routen]
+
+
+== GraphQL
+
+GraphQL ist eine Abfragesprache für APIs. Es bietet ein vollständige und verständliche
+Beschreibung der Daten der APIs.
+
+http://localhost:8080/q/graphql-ui/
+
+link:../graphql-queries/queries.graphql[GraphQl Queries]
+link:../src/main/java/at/htl/boundary/ClimberGraphQLResource.java.java[GraphQL Queries Implementierung]
+link:../src/main/java/at/htl/control/ClimberService.java[Methoden Implementierung]
+
+
+== gRPC
+
+Google Remote Procedure Call
+
+Mit gRPC könne bestehende System leicht erweitert werden.
+Der Großteil des Codes kann generiert werden nur die Methoden müssen implementiert werden.
+
+=== Probleme
+Das einzige Problem, dass ich hatte, war hier. Es kam eine Exception und zwar das etwas mit der Injection nicht stimmt.
+
+RouteResource
+----
+    @GrpcClient
+    RouteWithID routeWithID;
+----
+Die Lösung war ganz simpel. Ich hatte vergessen den Service in die application.properties einzutragen.
+
+In meiner Anwendung wird ganz simpel eine Route mithilfe der Id gesucht und ausgegeben.
+
+link:../src/main/java/at/htl/control/RouteService.java[Route Service]
+
+link:../src/main/java/at/htl/boundary/RouteResource.java[Route Resource]
+
+link:../src/main/proto/route.proto[Route Proto]
+
+
+== Security property-files
+
+Die Endpoints unserer Anwendung werden so annotiert, das nur Benutzer mit bestimmten
+Rollen darauf zugreifen können. Dadurch wird mehr Sicherheit garantiert.
+
+Ist in einem eigenen Branch bzw. in dem dafür vorgesehenen Repository.
+
+
+== Security JPA
+
+Die Endpoints unserer Anwendung werden so annotiert, das nur Benutzer mit bestimmten
+Rollen darauf zugreifen können. Dadurch wird mehr Sicherheit garantiert.
+
+Ist in einem eigenen Branch bzw. in dem dafür vorgesehenen Repository.
+
+
+
+
+
+
+
+
+
